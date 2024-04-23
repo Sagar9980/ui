@@ -4,15 +4,22 @@
   "description": "A simple ui library for next js.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest test",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "format": "prettier --check --ignore-path .gitignore .",
-    "format:fix": "prettier --write --ignore-path .gitignore ."
+    "format:fix": "prettier --write --ignore-path .gitignore .",
+    "prepare": "husky"
   },
   "author": "Sagar Dhami",
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
+    "eslint": "^9.1.1",
+    "husky": "^9.0.11",
     "next": "^14.2.2",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
