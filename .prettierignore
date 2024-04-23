@@ -1,1 +1,5 @@
-package-lock.yaml
+pnpm-lock.yaml
+dist
+.next
+build
+
