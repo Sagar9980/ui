@@ -16,6 +16,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@next/eslint-plugin-next": "^14.2.3",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "eslint": "^9.1.1",
