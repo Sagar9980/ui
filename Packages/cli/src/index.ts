@@ -1,4 +1,6 @@
+#!/usr/bin/env node
 import { Command } from "commander";
+import path from "path";
 const program = new Command();
 
 program
@@ -8,18 +10,12 @@ program
 
 program
   .command("add")
-  .description("Add two number provided from user")
-  .argument("<firstNumber>", "first number")
-  .argument("<secondNumber>", "second number")
-  .action((firstNumber, secondNumber) => {
-    console.log("First Number:", firstNumber);
-    console.log("secondNumber: ", secondNumber);
-    console.log("Sum", firstNumber + secondNumber);
+  .version("0.1.0")
+  .argument("<username>", "user to login")
+  .argument("[password]", "password for user, if required", "no password given")
+  .action((username, password) => {
+    console.log("username:", username);
+    console.log("password:", password);
   });
-program.option(
-  "-c, --cheese <type>",
-  "add the specified type of cheese",
-  "blue"
-);
 
 program.parse();
