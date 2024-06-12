@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "xsite",
   "version": "1.0.0",
   "description": "Add component to your apps",
   "main": "index.ts",
@@ -8,7 +8,7 @@
     "dist"
   ],
   "bin": {
-    "ui": "./dist/index.js"
+    "xsite": "./dist/index.js"
   },
   "scripts": {
     "dev": "tsup --watch",
@@ -19,11 +19,16 @@
   "author": "Sagar Dhami",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.2",
     "chalk": "^5.3.0",
     "commander": "^12.0.0",
+    "decompress": "^4.2.1",
+    "execa": "^9.2.0",
+    "fs-extra": "^11.2.0",
     "ora": "^8.0.1"
   },
   "devDependencies": {
+    "@types/decompress": "^4.2.7",
     "tsup": "^8.0.2"
   }
 }

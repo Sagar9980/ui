@@ -1,25 +1,16 @@
+#!/usr/bin/env node
 import { Command } from "commander";
-const program = new Command();
+import { create } from "@/src/commands/create";
 
-program
-  .name("ui")
-  .description("A simple ui library for testing!")
-  .version("1.0.0");
+async function main() {
+  const program = new Command()
+    .name("xsite")
+    .description("xsite -> a convinient way for building website!!")
+    .version("1.0.0", "-v, --version", "display the version number");
 
-program
-  .command("add")
-  .description("Add two number provided from user")
-  .argument("<firstNumber>", "first number")
-  .argument("<secondNumber>", "second number")
-  .action((firstNumber, secondNumber) => {
-    console.log("First Number:", firstNumber);
-    console.log("secondNumber: ", secondNumber);
-    console.log("Sum", firstNumber + secondNumber);
-  });
-program.option(
-  "-c, --cheese <type>",
-  "add the specified type of cheese",
-  "blue"
-);
+  program.addCommand(create);
 
-program.parse();
+  program.parse();
+}
+
+main();
