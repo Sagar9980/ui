@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import { Command } from "commander";
 import { create } from "@/src/commands/create";
-const program = new Command();
 
 async function main() {
   const program = new Command()
