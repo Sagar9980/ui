@@ -5,6 +5,7 @@ import decompress from "decompress";
 import { Command } from "commander";
 import path from "path";
 import axios from "axios";
+import { execa } from "execa";
 
 export const create = new Command()
   .name("create-app")
@@ -39,8 +40,20 @@ export const create = new Command()
       writer.on("finish", async () => {
         await decompress(zipPath, directory);
         await fs.unlink(zipPath);
-        spinner.stop();
         console.log(chalk.green("Project initialized successfuly"));
+        process.chdir(directory);
+        console.log(`Changed directory to ${directory}`);
+
+        spinner.text = "Installing dependencies...";
+
+        await execa("pnpm", ["install"], { stdio: "inherit" });
+
+        console.log(chalk.green("Dependencies installed successfully."));
+        spinner.stop();
+
+        console.log("You can run project using following commands:");
+        console.log(`cd ${directory}`);
+        console.log("pnpm dev");
       });
 
       writer.on("error", (err) => {
