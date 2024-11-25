@@ -25,6 +25,7 @@
     "decompress": "^4.2.1",
     "execa": "^9.2.0",
     "fs-extra": "^11.2.0",
+    "inquirer": "^12.0.1",
     "ora": "^8.0.1"
   },
   "devDependencies": {
