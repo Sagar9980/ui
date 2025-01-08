@@ -12,8 +12,7 @@ export const create = new Command()
   .description("add a starter kit for next js")
   .argument("directory", "app name")
   .action(async (directory) => {
-    const url =
-      "https://raw.githubusercontent.com/Sagar9980/next-starter/main/next-starter.zip";
+    const url = "https://xui.beeaver.com.np/xsite-template/template-1.zip";
     try {
       if (existsSync(directory)) {
         console.error(
@@ -41,18 +40,19 @@ export const create = new Command()
         await decompress(zipPath, directory);
         await fs.unlink(zipPath);
         console.log(chalk.green("Project initialized successfuly"));
-        process.chdir(directory);
-        console.log(`Changed directory to ${directory}`);
+        // process.chdir(directory);
+        // console.log(`Changed directory to ${directory}`);
 
-        spinner.text = "Installing dependencies...";
+        // spinner.text = "Installing dependencies...";
 
-        await execa("pnpm", ["install"], { stdio: "inherit" });
+        // await execa("pnpm", ["install"], { stdio: "inherit" });
 
-        console.log(chalk.green("Dependencies installed successfully."));
+        // console.log(chalk.green("Dependencies installed successfully."));
         spinner.stop();
 
         console.log("You can run project using following commands:");
         console.log(`cd ${directory}`);
+        console.log("pnpm install");
         console.log("pnpm dev");
       });
 
