@@ -10,9 +10,11 @@ export const add = new Command()
   .name("add")
   .description("Add components to your app")
   .argument("[components...]", "The components to add")
-  .requiredOption("-c, --target <directory>", "Target directory")
+  .option("-c, --target <directory>", "Target directory")
   .action(async (components, options) => {
-    const targetDir = path.resolve(process.cwd(), options.target);
+    const targetDir = options.target
+      ? path.join(process.cwd(), options.target)
+      : process.cwd();
 
     try {
       const spinner = ora("Fetching component registry...").start();
